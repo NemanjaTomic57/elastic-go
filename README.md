@@ -11,28 +11,26 @@ A lightweight Go utility for running and managing a local Elasticsearch instance
 ## 📁 Project Structure
 ```
 elastic-go/
-├── cmd
-│   ├── api
-│   │   └── main.go
-│   └── indexer
-│       └── main.go
-├── elastic-start-local
-│   ├── config
-│   │   └── telemetry.yml
-│   ├── docker-compose.yml
-│   ├── start.sh
-│   ├── stop.sh
-│   └── uninstall.sh
-├── go.mod
-├── go.sum
-├── internal
-│   ├── db
-│   │   └── db.go
-│   ├── es
-│   │   └── client.go
-│   └── indexer
-│       └── verzeichnisse.go
-└── start-local
+├── cmd/                               # Entry points for different executables (main packages)
+│   ├── api/                           # Contains the main file for starting the API service
+│   │   └── main.go                    # Bootstraps the API (e.g., starts HTTP server, connects to Elasticsearch)
+│   └── indexer/                       # Contains the main file for running indexing jobs or CLI tools
+│       └── main.go                    # Runs the indexer logic (e.g., populating Elasticsearch with data)
+│
+├── elastic-start-local                # Executable or script for starting Elasticsearch locally (helper tool)
+│
+├── go.mod                             # Go module definition (module path, dependencies, Go version)
+├── go.sum                             # Checksums for dependencies (ensures reproducible builds)
+│
+├── internal/                          # Internal packages (not exposed outside this module)
+│   ├── db/                            # Database layer (if any auxiliary data storage or persistence is used)
+│   │   └── db.go                      # Contains logic for connecting or mocking DB (optional helper)
+│   ├── es/                            # Elasticsearch client utilities
+│   │   └── client.go                  # Client initialization and connection handling to Elasticsearch
+│   └── indexer/                       # Indexing logic and domain-specific data processing
+│       └── verzeichnisse.go           # Example indexer implementation (e.g., indexing "directories" or files)
+│
+└── start-local                        # Shell or Go script to start local environment (Docker + setup helpers)
 ```
 
 ## ⚙️ Requirements
