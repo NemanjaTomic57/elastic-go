@@ -11,13 +11,28 @@ A lightweight Go utility for running and managing a local Elasticsearch instance
 ## 📁 Project Structure
 ```
 elastic-go/
-├── cmd/
-│   └── elastic-start-local   # CLI entry point
-├── internal/                 # Internal helpers and logic
-├── start-local/              # Local setup scripts
-├── .env                      # Environment configuration
+├── cmd
+│   ├── api
+│   │   └── main.go
+│   └── indexer
+│       └── main.go
+├── elastic-start-local
+│   ├── config
+│   │   └── telemetry.yml
+│   ├── docker-compose.yml
+│   ├── start.sh
+│   ├── stop.sh
+│   └── uninstall.sh
 ├── go.mod
-└── go.sum
+├── go.sum
+├── internal
+│   ├── db
+│   │   └── db.go
+│   ├── es
+│   │   └── client.go
+│   └── indexer
+│       └── verzeichnisse.go
+└── start-local
 ```
 
 ## ⚙️ Requirements
